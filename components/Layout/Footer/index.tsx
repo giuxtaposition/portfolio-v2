@@ -6,7 +6,7 @@ import SocialMediaLinks from './SocialMediaLinks'
 
 const Footer: React.FC = () => {
   return (
-    <footer>
+    <>
       <Box
         as='footer'
         role='contentinfo'
@@ -15,7 +15,8 @@ const Footer: React.FC = () => {
         px={{ base: '4', md: '8' }}
         bg={useColorModeValue('white', 'gray.900')}
         color={useColorModeValue('gray.900', 'gray.100')}
-        boxShadow='lg'
+        boxShadow='0px -10px 15px -3px rgba(0,0,0,0.1)'
+        w='full'
       >
         <Stack>
           <Stack
@@ -31,7 +32,7 @@ const Footer: React.FC = () => {
         </Stack>
       </Box>
       <Box h={1} bgGradient='linear(to-r, purple.500, blue.500)' />
-    </footer>
+    </>
   )
 }
 
