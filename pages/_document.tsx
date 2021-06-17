@@ -5,7 +5,10 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html lang='en'>
-        <Head />
+        <Head>
+          <meta name='description' content='Giulia Ye Portfolio' />
+          <link rel='icon' href='/icon.ico' />
+        </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />

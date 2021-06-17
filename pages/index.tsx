@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>GY Portfolio</title>
+        <title>Portfolio</title>
       </Head>
 
       <Circle
@@ -52,7 +52,7 @@ export default function Home() {
             Giulia Ye
           </Text>
           <Text color={useColorModeValue('gray.800', 'gray.200')} fontSize='xl'>
-            I&apos;m a Full Stack Developer and an open source lover from Italy!
+            Full Stack Developer and an open source lover from Italy!
           </Text>
           <Link href='/contact' _hover={{ textDecoration: 'none' }}>
             <Button
