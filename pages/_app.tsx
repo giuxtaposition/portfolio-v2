@@ -1,15 +1,17 @@
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
-import { ChakraProvider } from '@chakra-ui/react'
 import { Layout } from '../components/Layout'
+import { Chakra } from '../styles/theme/colorModeManager'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
+    <Chakra cookies={pageProps.cookies}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </ChakraProvider>
+    </Chakra>
   )
 }
 export default MyApp
+
+export { getServerSideProps } from '../styles/theme/colorModeManager'
