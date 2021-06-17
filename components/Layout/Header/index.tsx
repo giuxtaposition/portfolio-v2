@@ -60,22 +60,16 @@ const Header: React.FC = () => {
           />
           {/* Logo */}
           <Logo />
-          <HStack spacing={8} alignItems={'center'}>
-            {/* Web Nav Links */}
-            <HStack
-              as={'nav'}
-              spacing={4}
-              display={{ base: 'none', md: 'flex' }}
-            >
-              {NavLinks.map(link => (
-                <NavLink
-                  key={link.name}
-                  name={link.name}
-                  path={link.path}
-                  icon={link.icon}
-                />
-              ))}
-            </HStack>
+          {/* Web Nav Links */}
+          <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
+            {NavLinks.map(link => (
+              <NavLink
+                key={link.name}
+                name={link.name}
+                path={link.path}
+                icon={link.icon}
+              />
+            ))}
           </HStack>
 
           {/*Dark/Light Theme Button*/}
