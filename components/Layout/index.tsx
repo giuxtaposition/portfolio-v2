@@ -1,4 +1,4 @@
-import { Flex, Container } from '@chakra-ui/react'
+import { Flex, Container, Center } from '@chakra-ui/react'
 
 import Header from './Header'
 import Footer from './Footer'
@@ -13,9 +13,9 @@ export function Layout({ children }: Props) {
     <Flex direction='column' minHeight='100vh'>
       <Header />
 
-      <Container as='main' maxW='3xl' paddingX={8}>
+      <Center as='main' px={8} w='100%' flex='1 1 auto'>
         {children}
-      </Container>
+      </Center>
 
       <Footer />
     </Flex>
