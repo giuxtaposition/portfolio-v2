@@ -1,7 +1,7 @@
 import { IconType } from 'react-icons/lib'
 export interface project {
   title: string
-  img: string
+  img: StaticImageData
   description: string
   projectLink: string
   projectGithub: string

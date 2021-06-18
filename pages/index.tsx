@@ -10,6 +10,7 @@ import {
 import React from 'react'
 import Link from '../components/Layout/Header/Link'
 import Image from 'next/image'
+import Avatar from '../public/images/avatar.png'
 
 export const ChakraNextImage = (props: any) => {
   const { src, alt, ...rest } = props
@@ -77,7 +78,7 @@ export default function Home() {
             className='avatar'
             objectFit='cover'
             layout='fill'
-            src='/images/avatar.png'
+            src={Avatar}
             alt='avatar'
           />
         </Circle>

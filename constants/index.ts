@@ -16,6 +16,10 @@ import {
   SiSass,
 } from 'react-icons/si'
 
+import sketchpad from '../public/images/projects/sketchpad.png'
+import todo from '../public/images/projects/todo.png'
+import portfolio_v1 from '../public/images/projects/portfolio-v1.png'
+
 export const NavLinks = [
   {
     name: 'Home',
@@ -114,7 +118,7 @@ export const projectsFilters = [
 export const projects = [
   {
     title: 'Sketchpad',
-    img: '/images/projects/sketchpad.png',
+    img: sketchpad,
     description: 'A simple site to make some pixel art',
     projectLink: 'https://giuxtaposition.github.io/sketchpad/',
     projectGithub: 'https://github.com/giuxtaposition/sketchpad',
@@ -129,7 +133,7 @@ export const projects = [
   },
   {
     title: 'Todo App',
-    img: '/images/projects/todo.png',
+    img: todo,
     description: 'A Todo List App',
     projectLink: 'https://giuxtaposition.github.io/todo-app/',
     projectGithub: 'https://github.com/giuxtaposition/todo-app',
@@ -144,7 +148,7 @@ export const projects = [
   },
   {
     title: 'Portfolio Site',
-    img: '/images/projects/portfolio-v1.png',
+    img: portfolio_v1,
     description: 'Portofolio Site V1',
     projectLink: 'https://giuxtaposition.github.io/portfolio-v1',
     projectGithub: 'https://github.com/giuxtaposition/portfolio-v1',
