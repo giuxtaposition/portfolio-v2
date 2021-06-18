@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
   Stack,
   Text,
@@ -10,9 +10,8 @@ import {
   Badge,
   Flex,
   useDisclosure,
-  Box,
+  Image,
 } from '@chakra-ui/react'
-import Image from 'next/image'
 
 import ProjectModal from './ProjectModal'
 
@@ -39,7 +38,8 @@ const ProjectCard: React.FC<{ project: project }> = ({ project }) => {
       />
       <Stack
         as='button'
-        minW='20em'
+        height='full'
+        width='full'
         onClick={onOpen}
         spacing={5}
         padding={5}
@@ -57,9 +57,12 @@ const ProjectCard: React.FC<{ project: project }> = ({ project }) => {
           alignSelf='center'
           height='full'
         >
-          <Box width='2rem' height='10rem'>
-            <Image alt={project.title} src={project.img} layout='fill' />
-          </Box>
+          <Image
+            alt={project.title}
+            src={project.img}
+            layout='fill'
+            objectFit='cover'
+          />
         </Flex>
 
         <Stack

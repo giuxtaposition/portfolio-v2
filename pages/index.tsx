@@ -6,11 +6,10 @@ import {
   Text,
   useColorModeValue,
   Button,
+  Image,
 } from '@chakra-ui/react'
 import React from 'react'
 import Link from '../components/Layout/Header/Link'
-import Image from 'next/image'
-import Avatar from '../public/images/avatar.jpg'
 
 export const ChakraNextImage = (props: any) => {
   const { src, alt, ...rest } = props
@@ -69,23 +68,18 @@ export default function Home() {
         </Box>
         <Circle
           position='relative'
-          bg='blue.100'
-          w='300px'
-          h='300px'
+          bg='transparent'
+          w='25em'
+          h='25em'
           alignSelf='flex-end'
         >
           <Image
             className='avatar'
             objectFit='cover'
             layout='fill'
-            src={Avatar}
+            src='/images/avatar.png'
             alt='avatar'
           />
-          <style jsx global>{`
-            .avatar {
-              border-radius: 50%;
-            }
-          `}</style>
         </Circle>
       </Stack>
     </>
