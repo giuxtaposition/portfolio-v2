@@ -10,10 +10,11 @@ import {
   Badge,
   Flex,
   useDisclosure,
-  Image,
+  Box,
 } from '@chakra-ui/react'
 
 import ProjectModal from './ProjectModal'
+import Image from 'next/image'
 
 import { AiFillGithub, AiOutlineLink } from 'react-icons/ai'
 import { project } from './types'
@@ -38,8 +39,9 @@ const ProjectCard: React.FC<{ project: project }> = ({ project }) => {
       />
       <Stack
         as='button'
-        height='full'
+        height='20em'
         width='full'
+        minW='20em'
         onClick={onOpen}
         spacing={5}
         padding={5}
@@ -61,7 +63,7 @@ const ProjectCard: React.FC<{ project: project }> = ({ project }) => {
             alt={project.title}
             src={project.img}
             layout='fill'
-            objectFit='cover'
+            className='next-image next-image---contained'
           />
         </Flex>
 

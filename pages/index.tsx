@@ -6,10 +6,10 @@ import {
   Text,
   useColorModeValue,
   Button,
-  Image,
 } from '@chakra-ui/react'
 import React from 'react'
 import Link from '../components/Layout/Header/Link'
+import Image from 'next/image'
 
 export const ChakraNextImage = (props: any) => {
   const { src, alt, ...rest } = props
