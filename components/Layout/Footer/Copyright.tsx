@@ -4,8 +4,7 @@ import React from 'react'
 const Copyright = ({ ...props }: TextProps) => {
   return (
     <Text fontSize='sm' {...props}>
-      &copy; {new Date().getFullYear()} Web Site Built and Designed by Giulia
-      Ye.
+      &copy; {new Date().getFullYear()} Website Built and Designed by Giulia Ye.
     </Text>
   )
 }

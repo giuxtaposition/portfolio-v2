@@ -4,11 +4,11 @@ import { filterTab } from './types'
 const FilterTab: React.FC<filterTab> = ({ filter, icon }) => {
   return (
     <Tab
-      bg={useColorModeValue('gray.100', 'gray.700')}
+      bg={useColorModeValue('purple.100', 'gray.700')}
       color={useColorModeValue('gray.600', 'gray.400')}
       _selected={{
-        color: 'purple.800',
-        bg: 'purple.100',
+        bgGradient: 'linear(to-r, purple.300, purple.400, blue.400)',
+        color: 'white',
       }}
       mr={2}
       mt={2}

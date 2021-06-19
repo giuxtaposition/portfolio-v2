@@ -25,7 +25,7 @@ const ProjectDetailsListItem: React.FC<projectDetails> = ({
 }) => {
   return (
     <ListItem color='dark'>
-      <ListIcon as={icon} color='green.400' />
+      <ListIcon as={icon} color='purple.400' />
       <Text as='strong'>{title}:</Text> {value}
     </ListItem>
   )

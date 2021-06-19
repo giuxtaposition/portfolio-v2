@@ -6,6 +6,9 @@ export const globalTheme = extendTheme({
       'html, body': {
         backgroundColor: props.colorMode === 'light' ? '#F2F2F2' : 'gray.800',
       },
+      '.contact-form': {
+        backgroundColor: props.colorMode === 'light' ? '#F2F2F2' : 'gray.800',
+      },
     }),
   },
 })
