@@ -23,4 +23,17 @@ a {
   &---contained {
     object-fit: contain;
   }
+  &---hover:hover {
+    animation-duration: 1s;
+    animation-name: scale;
+    animation-fill-mode: forwards;
+  }
+  @keyframes scale {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
 }

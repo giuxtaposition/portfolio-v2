@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import React from 'react'
-import { VStack, Box, Text, Heading, useColorModeValue } from '@chakra-ui/react'
+import { VStack, Text, Heading, useColorModeValue } from '@chakra-ui/react'
 import TechStack from '../components/TechStack'
+import { MotionBox, MotionStack } from '../components/motion'
 
 export default function About() {
   return (
@@ -11,7 +12,20 @@ export default function About() {
       </Head>
       <VStack justifyContent='center' alignItems='center'>
         {/* Intro */}
-        <VStack mb={6}>
+
+        <MotionStack
+          mb={6}
+          textAlign='center'
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+            transition: {
+              duration: 0.5,
+            },
+          }}
+        >
           <Heading p={1} color={useColorModeValue('purple.600', 'purple.300')}>
             Let Me Introduce Myself
           </Heading>
@@ -24,7 +38,7 @@ export default function About() {
             Strong Believer of the Open-source-software movement! Let&apos;s
             make something amazing!
           </Text>
-        </VStack>
+        </MotionStack>
 
         {/*Tech Stack*/}
         <VStack>
@@ -35,9 +49,20 @@ export default function About() {
             A list of my favorite tools and technologies that I use on a regular
             basis.
           </Text>
-          <Box>
+          <MotionBox
+            initial={{
+              translateY: 80,
+            }}
+            animate={{
+              translateY: 0,
+              opacity: 1,
+              transition: {
+                duration: 0.5,
+              },
+            }}
+          >
             <TechStack />
-          </Box>
+          </MotionBox>
         </VStack>
       </VStack>
     </>

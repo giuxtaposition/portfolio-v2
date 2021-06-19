@@ -2,27 +2,18 @@ import Head from 'next/head'
 import {
   Stack,
   Circle,
-  Box,
   Text,
   useColorModeValue,
   Button,
-  Flex,
 } from '@chakra-ui/react'
 import React from 'react'
 import Link from '../components/Layout/Header/Link'
 import Image from 'next/image'
 import Avatar from '../public/images/avatar.png'
-
-export const ChakraNextImage = (props: any) => {
-  const { src, alt, ...rest } = props
-  return (
-    <Box position='relative' {...rest}>
-      <Image objectFit='cover' layout='fill' src={src} alt={alt} />
-    </Box>
-  )
-}
+import { MotionBox } from '../components/motion'
 
 export default function Home() {
+  const animationDuration = 0.5
   return (
     <>
       <Head>
@@ -37,7 +28,19 @@ export default function Home() {
         w='100%'
       >
         {/* Intro */}
-        <Box>
+        <MotionBox
+          initial={{
+            translateX: -150,
+            opacity: 0,
+          }}
+          animate={{
+            translateX: 0,
+            opacity: 1,
+            transition: {
+              duration: animationDuration,
+            },
+          }}
+        >
           <Text fontSize='5xl' fontWeight='semibold'>
             Hi, I am
           </Text>
@@ -64,10 +67,22 @@ export default function Home() {
               Contact Me
             </Button>
           </Link>
-        </Box>
+        </MotionBox>
 
         {/* Avatar */}
-        <Box>
+        <MotionBox
+          initial={{
+            translateX: 150,
+            opacity: 0,
+          }}
+          animate={{
+            translateX: 0,
+            opacity: 1,
+            transition: {
+              duration: animationDuration,
+            },
+          }}
+        >
           <Circle
             position='relative'
             bg='transparent'
@@ -82,7 +97,7 @@ export default function Home() {
               alt='avatar'
             />
           </Circle>
-        </Box>
+        </MotionBox>
       </Stack>
     </>
   )

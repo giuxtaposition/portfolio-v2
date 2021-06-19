@@ -8,9 +8,7 @@ import {
   Wrap,
   WrapItem,
   Badge,
-  Flex,
   useDisclosure,
-  Box,
 } from '@chakra-ui/react'
 
 import ProjectModal from './ProjectModal'
@@ -18,6 +16,7 @@ import Image from 'next/image'
 
 import { AiFillGithub, AiOutlineLink } from 'react-icons/ai'
 import { project } from './types'
+import { MotionFlex } from '../motion'
 
 const ProjectCard: React.FC<{ project: project }> = ({ project }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -26,6 +25,18 @@ const ProjectCard: React.FC<{ project: project }> = ({ project }) => {
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
     event.stopPropagation()
+  }
+
+  const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
+
+  const thumbnailVariants = {
+    initial: { scale: 0.9, opacity: 0 },
+    enter: { scale: 1, opacity: 1, transition },
+    exit: {
+      scale: 0.5,
+      opacity: 0,
+      transition: { transition },
+    },
   }
 
   return (
@@ -52,20 +63,21 @@ const ProjectCard: React.FC<{ project: project }> = ({ project }) => {
         borderColor={useColorModeValue('gray.300', 'gray.700')}
         justifyContent='center'
       >
-        <Flex
+        <MotionFlex
           width='full'
           position='relative'
           borderRadius='md'
           alignSelf='center'
           height='full'
+          variants={thumbnailVariants}
         >
           <Image
             alt={project.title}
             src={project.img}
             layout='fill'
-            className='next-image next-image---contained'
+            className='next-image next-image---contained next-image---hover'
           />
-        </Flex>
+        </MotionFlex>
 
         <Stack
           width='full'
