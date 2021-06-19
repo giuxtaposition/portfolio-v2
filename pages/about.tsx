@@ -9,12 +9,7 @@ export default function About() {
       <Head>
         <title>About</title>
       </Head>
-      <VStack
-        justifyContent='center'
-        alignItems='center'
-        spacing={2}
-        h='calc(100vh - 6em)'
-      >
+      <VStack justifyContent='center' alignItems='center'>
         {/* Intro */}
         <VStack mb={6}>
           <Heading p={1} color={useColorModeValue('purple.600', 'purple.300')}>

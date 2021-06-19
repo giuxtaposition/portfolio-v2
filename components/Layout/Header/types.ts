@@ -6,6 +6,7 @@ export interface navlink {
   name: string
   path: string
   icon: IconType
+  onClose?: () => void
 }
 
 export type LinkProps = ChakraLinkProps &

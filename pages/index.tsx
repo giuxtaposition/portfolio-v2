@@ -6,6 +6,7 @@ import {
   Text,
   useColorModeValue,
   Button,
+  Flex,
 } from '@chakra-ui/react'
 import React from 'react'
 import Link from '../components/Layout/Header/Link'
@@ -28,18 +29,15 @@ export default function Home() {
         <title>Portfolio</title>
       </Head>
 
-      <Circle
-        position='absolute'
-        bg='blue.100'
-        opacity='0.1'
-        w='300px'
-        h='300px'
-        alignSelf='flex-end'
-        right={20}
-        top={40}
-      />
-      <Stack direction={['column', 'row']} spacing={20}>
-        <Box align='flex-start'>
+      <Stack
+        direction={['column', 'row']}
+        justifyContent='center'
+        alignItems='center'
+        p={8}
+        w='100%'
+      >
+        {/* Intro */}
+        <Box>
           <Text fontSize='5xl' fontWeight='semibold'>
             Hi, I am
           </Text>
@@ -67,21 +65,24 @@ export default function Home() {
             </Button>
           </Link>
         </Box>
-        <Circle
-          position='relative'
-          bg='transparent'
-          w='25em'
-          h='25em'
-          alignSelf='flex-end'
-        >
-          <Image
-            className='avatar'
-            objectFit='cover'
-            layout='fill'
-            src={Avatar}
-            alt='avatar'
-          />
-        </Circle>
+
+        {/* Avatar */}
+        <Box>
+          <Circle
+            position='relative'
+            bg='transparent'
+            w='25em'
+            h='25em'
+            alignSelf='flex-end'
+          >
+            <Image
+              className='next-image next-image---contained'
+              layout='fill'
+              src={Avatar}
+              alt='avatar'
+            />
+          </Circle>
+        </Box>
       </Stack>
     </>
   )

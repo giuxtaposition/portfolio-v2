@@ -16,7 +16,7 @@ import { NavLinks } from '../../../constants'
 import { navlink } from './types'
 import Link from './Link'
 
-const NavLink: React.FC<navlink> = ({ name, path, icon }) => (
+const NavLink: React.FC<navlink> = ({ name, path, icon, onClose }) => (
   <Link
     href={path}
     px={2}
@@ -27,6 +27,7 @@ const NavLink: React.FC<navlink> = ({ name, path, icon }) => (
       bg: useColorModeValue('gray.200', 'gray.700'),
       color: useColorModeValue('purple.600', 'purple.300'),
     }}
+    onClick={onClose}
   >
     <Center>
       <Icon w={6} h={6} as={icon} mr={2} />
@@ -86,7 +87,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Nav Links */}
         {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
+          <Box pb={4} display={{ md: 'none' }} zIndex='99'>
             <Stack as={'nav'} spacing={4}>
               {NavLinks.map(link => (
                 <NavLink
@@ -94,6 +95,7 @@ const Header: React.FC = () => {
                   name={link.name}
                   path={link.path}
                   icon={link.icon}
+                  onClose={onClose}
                 />
               ))}
             </Stack>

@@ -21,7 +21,7 @@ export default function Link({ href, children, ...rest }: LinkProps) {
   }, [colorMode])
 
   return (
-    <NextLink href={href} as={process.env.BACKEND_URL + href}>
+    <NextLink href={href}>
       <ChakraLink
         href={href}
         color={isActive ? activeLinkColor : ''}

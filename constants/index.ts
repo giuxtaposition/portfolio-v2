@@ -80,7 +80,7 @@ export const techStack = [
     color: 'yellow.500',
   },
   {
-    name: 'Visual Studio Code',
+    name: 'VS Code',
     icon: SiVisualstudiocode,
     color: 'blue.500',
   },

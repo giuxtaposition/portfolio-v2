@@ -5,8 +5,8 @@ import { project } from './types'
 
 const ProjectsPanel: React.FC<{ projects: project[] }> = ({ projects }) => {
   return (
-    <Box w='100%' mx='auto' mb={6} maxW='3xl' px={2}>
-      <SimpleGrid columns={[1, 1, 2]} spacing={4} mt={8}>
+    <Box w='100%' mx='auto' mb={6} maxW='3xl'>
+      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={4} mt={8}>
         {projects.map(project => (
           <ProjectCard project={project} key={project.id} />
         ))}
