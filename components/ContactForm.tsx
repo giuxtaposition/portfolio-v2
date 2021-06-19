@@ -68,8 +68,9 @@ const ContactForm: React.FC = () => {
             message: values.message,
           }
 
-          let toastText = ''
-          let toastType = ''
+          var toastText = ''
+          var toastType: 'info' | 'warning' | 'success' | 'error' | undefined =
+            undefined
 
           contactService(emailObject).then(returnedResponse => {
             if (returnedResponse === 'success') {
@@ -79,15 +80,14 @@ const ContactForm: React.FC = () => {
               toastText = 'Email Not Sent, please try again'
               toastType = 'error'
             }
-          })
-
-          toast({
-            position: 'bottom',
-            title: 'Notification',
-            description: 'Email Sent Successfully!',
-            status: 'success',
-            duration: 2000,
-            isClosable: true,
+            toast({
+              position: 'bottom',
+              title: 'Notification',
+              description: toastText,
+              status: toastType,
+              duration: 2000,
+              isClosable: true,
+            })
           })
         }, 200)
       }}
