@@ -71,12 +71,14 @@ const ProjectCard: React.FC<{ project: project }> = ({ project }) => {
           height='full'
           variants={thumbnailVariants}
         >
-          <Image
-            alt={project.title}
-            src={project.img}
-            layout='fill'
-            className='next-image next-image---contained next-image---hover'
-          />
+          {project.img && (
+            <Image
+              alt={project.title}
+              src={project.img}
+              layout='fill'
+              className='next-image next-image---contained next-image---hover'
+            />
+          )}
         </MotionFlex>
 
         <Stack

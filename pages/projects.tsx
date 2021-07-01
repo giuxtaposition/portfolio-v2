@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React from 'react'
+import React, { useMemo } from 'react'
 import {
   Stack,
   Box,
@@ -9,13 +9,59 @@ import {
   Tabs,
   TabPanel,
   TabPanels,
+  useColorMode,
 } from '@chakra-ui/react'
 import ProjectsFilters from '../components/Projects/ProjectsFilters'
 import ProjectsPanel from '../components/Projects/ProjectsPanel'
-import { projectsFilters, projects } from '../constants'
+import { projectsFilters } from '../constants'
 import { project } from '../components/Projects/types'
+import { useApolloClient, useSubscription, useQuery } from '@apollo/client'
+import { ALL_PROJECTS, PROJECT_ADDED } from '../queries'
 
-export default function Projects() {
+export default function Projects({}) {
+  const client = useApolloClient()
+  const { data, loading, error } = useQuery(ALL_PROJECTS)
+  const { colorMode, toggleColorMode } = useColorMode()
+
+  const BoxColor = useMemo(() => {
+    if (colorMode === 'light') {
+      return 'gray.800'
+    } else {
+      return 'gray.200'
+    }
+  }, [colorMode])
+
+  // Listen for new projects and update cache when subscription data arrives
+  const updateCacheWith = (addedProject: any) => {
+    const includedIn = (set: any, object: any) =>
+      set.map((p: any) => p.id).includes(object.id)
+
+    // Check that added project is not included in the current store
+    const dataInStore = client.readQuery({ query: ALL_PROJECTS })
+    if (!includedIn(dataInStore.allProjects, addedProject)) {
+      client.writeQuery({
+        query: ALL_PROJECTS,
+        data: { allProjects: dataInStore.allProjects.concat(addedProject) },
+      })
+    }
+  }
+
+  useSubscription(PROJECT_ADDED, {
+    onSubscriptionData: ({ subscriptionData }) => {
+      const addedProject = subscriptionData.data.projectAdded
+      updateCacheWith(addedProject)
+    },
+  })
+
+  if (loading) {
+    return <div>LOADING</div>
+  }
+
+  if (error) {
+    console.error(error)
+    return null
+  }
+
   const handleTabFilter = (project: project, tab: string) => {
     if (tab === 'All') {
       return project
@@ -27,6 +73,8 @@ export default function Projects() {
       }
     }
   }
+
+  const projects = data.allProjects
 
   return (
     <>
@@ -49,7 +97,7 @@ export default function Projects() {
               as='span'
               display='block'
               position='absolute'
-              bg={useColorModeValue('gray.800', 'gray.200')}
+              bg={BoxColor}
               w='100%'
               h='2px'
               bottom={-2}
@@ -70,11 +118,12 @@ export default function Projects() {
             <ProjectsFilters />
 
             {/*Projects*/}
+
             <TabPanels minHeight={'45vh'}>
               {projectsFilters.map((tab, index) => (
                 <TabPanel py={4} key={index}>
                   <ProjectsPanel
-                    projects={projects.filter(project =>
+                    projects={projects.filter((project: any) =>
                       handleTabFilter(project, tab.name)
                     )}
                   />

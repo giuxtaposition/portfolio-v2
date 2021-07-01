@@ -16,12 +16,6 @@ import {
   SiSass,
 } from 'react-icons/si'
 
-import sketchpad from '../public/images/projects/sketchpad.png'
-import todo from '../public/images/projects/todo.png'
-import portfolio_v1 from '../public/images/projects/portfolio-v1.png'
-import portfolio_v2 from '../public/images/projects/portfolio-v2.png'
-import bookworm from '../public/images/projects/bookworm.png'
-
 export const NavLinks = [
   {
     name: 'Home',
@@ -114,84 +108,5 @@ export const projectsFilters = [
   {
     name: 'Other',
     icon: BsGearFill,
-  },
-]
-
-export const projects = [
-  {
-    title: 'Bookworm',
-    img: bookworm,
-    description: 'Library management site',
-    projectLink: 'https://giuxtaposition.github.io/bookworm',
-    projectGithub: 'https://github.com/giuxtaposition/bookworm',
-    id: 'bookworm',
-    category: ['Frontend', 'Backend'],
-    details: {
-      language: 'Typescript, Sass',
-      framework: 'Express.js',
-      library: 'React, Chakra UI, Node.js',
-      database: '',
-    },
-  },
-  {
-    title: 'Portfolio-v2',
-    img: portfolio_v2,
-    description: 'Portfolio Site to showcase my projects (This Site)',
-    projectLink: 'https://giuxtaposition.vercel.app/',
-    projectGithub: 'https://github.com/giuxtaposition/portfolio-v2',
-    id: 'portfolio-v2',
-    category: ['Frontend', 'Backend'],
-    details: {
-      language: 'Typescript, Sass',
-      framework: 'Express.js',
-      library: 'React, Chakra UI, Framer Motion, Node.js',
-      database: '',
-    },
-  },
-
-  {
-    title: 'Todo App',
-    img: todo,
-    description: 'A Todo List App',
-    projectLink: 'https://giuxtaposition.github.io/todo-app/',
-    projectGithub: 'https://github.com/giuxtaposition/todo-app',
-    id: 'todo',
-    category: ['Frontend', 'Backend'],
-    details: {
-      language: 'Javascript',
-      framework: '',
-      library: 'React, Material-UI',
-      database: 'Firebase Firestore Database',
-    },
-  },
-  {
-    title: 'Portfolio-V1',
-    img: portfolio_v1,
-    description: 'Portofolio Site V1',
-    projectLink: 'https://giuxtaposition.github.io/portfolio-v1',
-    projectGithub: 'https://github.com/giuxtaposition/portfolio-v1',
-    id: 'portofolio-v1',
-    category: ['Frontend', 'Backend'],
-    details: {
-      language: 'Typescript, Sass',
-      framework: 'Express.js',
-      library: 'React, Node.js',
-      database: '',
-    },
-  },
-  {
-    title: 'Sketchpad',
-    img: sketchpad,
-    description: 'A simple site to make some pixel art',
-    projectLink: 'https://giuxtaposition.github.io/sketchpad/',
-    projectGithub: 'https://github.com/giuxtaposition/sketchpad',
-    id: 'sketchpad',
-    category: ['Frontend'],
-    details: {
-      language: 'Javascript',
-      framework: '',
-      library: 'React',
-      database: '',
-    },
   },
 ]
