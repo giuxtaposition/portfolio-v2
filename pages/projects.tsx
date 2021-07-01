@@ -3,7 +3,7 @@ import React, { useMemo } from 'react'
 import {
   Stack,
   Box,
-  useColorModeValue,
+  Spinner,
   Heading,
   HStack,
   Tabs,
@@ -54,7 +54,17 @@ export default function Projects({}) {
   })
 
   if (loading) {
-    return <div>LOADING</div>
+    return (
+      <div>
+        <Spinner
+          thickness='4px'
+          speed='0.65s'
+          emptyColor='gray.300'
+          color='purple.500'
+          size='xl'
+        />
+      </div>
+    )
   }
 
   if (error) {
