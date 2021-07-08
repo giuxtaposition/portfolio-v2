@@ -17,6 +17,17 @@ import { setContext } from '@apollo/client/link/context'
 import { getMainDefinition } from '@apollo/client/utilities'
 import { WebSocketLink } from '@apollo/client/link/ws'
 
+let httpLinkUri = ''
+let wsLinkUri = ''
+
+if (process.env.NODE_ENV !== 'production') {
+  httpLinkUri = 'http://localhost:3001/graphql'
+  wsLinkUri = 'ws://localhost:3001/graphql'
+} else {
+  httpLinkUri = 'https://api.giuxtaposition.tech/graphql'
+  wsLinkUri = 'wss://api.giuxtaposition.tech/graphql'
+}
+
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('library-user-token')
   return {
@@ -24,11 +35,11 @@ const authLink = setContext((_, { headers }) => {
   }
 })
 
-const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql' })
+const httpLink = new HttpLink({ uri: httpLinkUri })
 
 const wsLink = process.browser
   ? new WebSocketLink({
-      uri: `ws://localhost:3001/graphql`,
+      uri: wsLinkUri,
       options: { reconnect: true },
     })
   : null
