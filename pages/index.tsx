@@ -14,6 +14,7 @@ import { MotionBox } from '../components/motion'
 
 export default function Home() {
   const animationDuration = 0.5
+
   return (
     <>
       <Head>
@@ -21,11 +22,11 @@ export default function Home() {
       </Head>
 
       <Stack
-        direction={['column', 'row']}
+        direction={['column', 'column', 'row']}
         justifyContent='center'
         alignItems='center'
         p={8}
-        w='100%'
+        w='100vw'
       >
         {/* Intro */}
         <MotionBox
@@ -40,6 +41,7 @@ export default function Home() {
               duration: animationDuration,
             },
           }}
+          w='100%'
         >
           <Text fontSize='5xl' fontWeight='semibold'>
             Hi, I am
@@ -82,11 +84,12 @@ export default function Home() {
               duration: animationDuration,
             },
           }}
+          width='100%'
         >
           <Circle
             position='relative'
             bg='transparent'
-            w='25em'
+            w='100%'
             h='25em'
             alignSelf='flex-end'
           >

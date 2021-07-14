@@ -9,6 +9,7 @@ import {
   Stack,
   Icon,
   Center,
+  chakra,
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 import Logo from './Logo'
@@ -41,7 +42,7 @@ const Header: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
-    <header>
+    <chakra.header w='100vw'>
       <Box h={1} bgGradient='linear(to-r, purple.500, blue.500)' />
       <Box
         bg={useColorModeValue('white', 'gray.900')}
@@ -102,7 +103,7 @@ const Header: React.FC = () => {
           </Box>
         ) : null}
       </Box>
-    </header>
+    </chakra.header>
   )
 }
 
