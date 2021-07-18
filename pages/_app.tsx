@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { Layout } from '../components/Layout'
 import { Chakra } from '../styles/theme/colorModeManager'
 import { globalTheme } from '../styles/theme/'
+import Head from 'next/head'
 
 import React from 'react'
 import {
@@ -65,13 +66,18 @@ const client = new ApolloClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider client={client}>
-      <Chakra cookies={pageProps.cookies} theme={globalTheme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </Chakra>
-    </ApolloProvider>
+    <>
+      <Head>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+      </Head>
+      <ApolloProvider client={client}>
+        <Chakra cookies={pageProps.cookies} theme={globalTheme}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Chakra>
+      </ApolloProvider>
+    </>
   )
 }
 export default MyApp

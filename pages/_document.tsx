@@ -5,7 +5,8 @@ export default class Document extends NextDocument {
       <Html lang='en'>
         <Head>
           <meta name='description' content='Giulia Ye Portfolio' />
-          <meta name='viewport' content='width=device-width, initial-scale=1' />
+
+          <meta name='theme-color' content='#9F7AEA' />
           <link rel='icon' href='/icon.ico' />
         </Head>
         <body>
