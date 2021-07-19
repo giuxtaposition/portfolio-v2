@@ -21,7 +21,7 @@ import { ALL_PROJECTS, PROJECT_ADDED } from '../queries'
 export default function Projects({}) {
   const client = useApolloClient()
   const { data, loading, error } = useQuery(ALL_PROJECTS)
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { colorMode } = useColorMode()
 
   const BoxColor = useMemo(() => {
     if (colorMode === 'light') {

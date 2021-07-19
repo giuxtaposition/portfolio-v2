@@ -25,7 +25,7 @@ export default function Home() {
         direction={['column', 'column', 'row']}
         justifyContent='center'
         alignItems='center'
-        p={8}
+        p={{ base: 8, md: 20 }}
         w='100vw'
       >
         {/* Intro */}
