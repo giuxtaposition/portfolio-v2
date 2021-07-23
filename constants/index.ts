@@ -14,6 +14,9 @@ import {
   SiGit,
   SiVisualstudiocode,
   SiSass,
+  SiGraphql,
+  SiApollographql,
+  SiMongodb,
 } from 'react-icons/si'
 
 export const NavLinks = [
@@ -89,6 +92,21 @@ export const techStack = [
     name: 'Git',
     icon: SiGit,
     color: 'orange.500',
+  },
+  {
+    name: 'Grapqhl',
+    icon: SiGraphql,
+    color: 'pink.500',
+  },
+  {
+    name: 'Apollo',
+    icon: SiApollographql,
+    color: 'purple.600',
+  },
+  {
+    name: 'MongoDB',
+    icon: SiMongodb,
+    color: 'green.600',
   },
 ]
 
